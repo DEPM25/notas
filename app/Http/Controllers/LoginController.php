@@ -21,10 +21,10 @@ class LoginController extends Controller
     public function login(LoginRequest $request)
     {
         $credentials = $request->getCredentials();
-
+        /* 
         if (!Auth::attempt($credentials)) {
             return redirect()->route('login')->withErrors('Nick y/o contraseña son incorrectos');
-        }
+        } */
 
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
 
