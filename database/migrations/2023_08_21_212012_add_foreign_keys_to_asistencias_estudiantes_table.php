@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::table('asistencias_estudiantes', function (Blueprint $table) {
             $table->foreign(['estudiantes_asignaciones_id'], 'fk_asistencias_estudiantes_estudiantes_asignaciones1')->references(['id'])->on('estudiantes_asignaciones')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+
         });
     }
 
@@ -27,6 +28,7 @@ return new class extends Migration
     {
         Schema::table('asistencias_estudiantes', function (Blueprint $table) {
             $table->dropForeign('fk_asistencias_estudiantes_estudiantes_asignaciones1');
+            $table->dropForeign('fk_horario_diario_id');
         });
     }
 };

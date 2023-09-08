@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('horario', function (Blueprint $table) {
-            $table->foreign(['asignatura_id'])->references(['id'])->on('asignaturas')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign(['jornada_id'], 'FK_jornada_id')->references(['id'])->on('jornadas')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('horario', function (Blueprint $table) {
-            $table->dropForeign('horario_asignatura_id_foreign');
+            $table->dropForeign('horario_jornada_id_foreign');
         });
     }
 };

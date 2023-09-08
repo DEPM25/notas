@@ -15,10 +15,12 @@ return new class extends Migration
     {
         Schema::create('horario', function (Blueprint $table) {
             $table->integer('id')->primary();
-            $table->string('dia_asignatura', 45)->nullable();
-            $table->time('hora_inicio')->nullable();
-            $table->time('hora_final')->nullable();
-            $table->string('asignatura_id', 6)->index('FK_asignatura_id');
+            $table->unsignedTinyInteger('jornada_id')->index('FK_jornada_id');
+            $table->unsignedSmallInteger('horas_dia');
+            $table->unsignedSmallInteger('horas_clase');
+            $table->unsignedSmallInteger('horas_descanso');
+            $table->unsignedSmallInteger('count_descanso');
+            $table->string('horario', 150);
         });
     }
 

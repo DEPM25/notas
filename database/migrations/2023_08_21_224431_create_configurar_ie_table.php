@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('configurar_ie', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre_colegio', 150);
+            $table->string('telefono', 100);
+            $table->string('direccion', 100);
+            $table->string('correo', 100);
+            $table->string('escudo');
+            $table->string('bandera');
+            $table->string('mision');
+            $table->string('vision');
+            $table->string('rector', 20)->index('FK_rector_NIUP');
             $table->timestamps();
         });
     }

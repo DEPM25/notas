@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class ConfigurarIE extends Model
 {
     use HasFactory;
+
+    protected $table = 'configurar_ie';
 }

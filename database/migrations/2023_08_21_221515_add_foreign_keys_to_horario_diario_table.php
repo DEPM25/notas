@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('horario_diario', function (Blueprint $table) {
-            //
+            $table->foreign(['asignacion_id'], 'fk_horario_diario_asignacion')->references(['id'])->on('asignaciones')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
     }
 
@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('horario_diario', function (Blueprint $table) {
-            //
+            $table->dropForeign('fk_horario_diario_asignacion');
         });
     }
 };

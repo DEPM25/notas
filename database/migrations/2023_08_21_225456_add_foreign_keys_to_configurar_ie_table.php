@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('configurar_ie', function (Blueprint $table) {
-            //
+            $table->foreign(['rector'], 'FK_rector_NIUP')->references(['NIUP'])->on('info_usuarios');
         });
     }
 
@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('configurar_ie', function (Blueprint $table) {
-            //
+            $table->dropForeign('FK_rector_NIUP');
         });
     }
 };

@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('horario_diario', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('asignacion_id')->index('FK_asignacion_id');
+            $table->string('dia', 15);
+            $table->time('hora_inicio');
+            $table->time('hora_fin');
             $table->timestamps();
         });
     }

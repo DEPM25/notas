@@ -14,15 +14,18 @@ class RolSeeder extends Seeder
      */
     public function run(): void
     {
-        $roles = ['Administrador', 'Rector', 'Secretaria', 'Coor. Academico', 'Coor.Disciplinario', 'Profesor', 'Estudiante'];
+        $roles = ['Administrador', 'Rector', 'Secretaria', 'Coor.Academico', 'Coor.Disciplinario', 'Profesor', 'Estudiante'];
         $prefijos = ['ADM', 'REC', 'SEC', 'COA', 'COD', 'PRO', 'EST'];
         for ($i = 0; $i<count($roles); $i++) {
             DB::table('roles')->insert([
-                'nombre' => $roles[$i],
-                'prefijo' => $prefijos[$i],
+                'name' => $roles[$i],
+                'prefix' => $prefijos[$i],
+                'guard_name' => 'web',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
         }
+
+
     }
 }
